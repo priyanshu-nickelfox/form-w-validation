@@ -1,11 +1,13 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ProtectedRoute = () => {
-  const user = useSelector((state) => state.user.user);
+  const { isLoggedIn, user } = useSelector((state) => state.user);
 
-  if (!user) {
+  console.log("user: ", user);
+  console.log("isLogged: ", isLoggedIn);
+  if (!user || !user.isLoggedIn) {
     return <Navigate to="/login" replace />;
   }
 

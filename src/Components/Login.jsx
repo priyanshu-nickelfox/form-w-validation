@@ -45,11 +45,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validate()) return;
-
     try {
-      await dispatch(loginUser(login)).unwrap();
-      navigate("/dashboard");
+      dispatch(loginUser(login));
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1500);
     } catch (error) {
       setError({ server: stateError || "Login failed!!" });
     }
@@ -70,7 +70,7 @@ const Login = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#000",
+        background: "linear-gradient(to bottom right, #362050, #9368AB)",
       }}
     >
       <Box
@@ -92,7 +92,7 @@ const Login = () => {
           left="20px"
         >
           <ArrowBackIosIcon
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
             fontSize="small"
             sx={{
               color: "#000",
@@ -103,7 +103,7 @@ const Login = () => {
           />
         </Stack>
         <Typography sx={{ marginBottom: "20px", fontSize: "20px" }}>
-          Login Form
+          Login
         </Typography>
         <form onSubmit={handleSubmit}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -144,11 +144,11 @@ const Login = () => {
                 borderRadius: "10px",
                 background: "linear-gradient(to right, #D05DB8, #6E62E5)",
                 "&:hover": {
-                  background: "linear-gradient(to right, #D05DB8, #6E62E5)",
+                  background: "linear-gradient(to right, #6E62E5, #D05DB8)",
                 },
               }}
             >
-              {loading ? "Loading..." : "Login"}
+              Login
             </Button>
           </Box>
         </form>

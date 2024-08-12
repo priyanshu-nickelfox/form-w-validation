@@ -73,7 +73,7 @@ const Register = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#000",
+        background: "linear-gradient(to bottom right, #362050, #9368AB)",
       }}
     >
       <Box
@@ -95,7 +95,7 @@ const Register = () => {
           left="20px"
         >
           <ArrowBackIosIcon
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
             fontSize="small"
             sx={{
               color: "#000",
@@ -106,7 +106,7 @@ const Register = () => {
           />
         </Stack>
         <Typography sx={{ marginBottom: "20px", fontSize: "20px" }}>
-          Register Form
+          Register
         </Typography>
         <form onSubmit={handleSubmit}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -175,7 +175,7 @@ const Register = () => {
                 borderRadius: "10px",
                 background: "linear-gradient(to right, #D05DB8, #6E62E5)",
                 "&:hover": {
-                  background: "linear-gradient(to right, #D05DB8, #6E62E5)",
+                  background: "linear-gradient(to right, #6E62E5, #D05DB8)",
                 },
               }}
             >
